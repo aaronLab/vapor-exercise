@@ -31,4 +31,8 @@ func routes(_ app: Application) throws {
         return "Hello, \(name)!"
     }
     
+    app.get("api", "get", "metadata") { req -> String in
+        return "get with Metadata"
+    }.description("My Metadata String")
+    
 }
