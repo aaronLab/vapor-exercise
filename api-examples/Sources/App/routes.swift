@@ -19,4 +19,11 @@ func routes(_ app: Application) throws {
         return "catchall"
     }
     
+    app.get("api", "get", "integer", ":x") { req -> String in
+        guard let int = req.parameters.get("x", as: Int.self) else {
+            throw Abort(HTTPResponseStatus.badRequest)
+        }
+        return "\(int) is a great number"
+    }
+    
 }
