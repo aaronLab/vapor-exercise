@@ -26,12 +26,12 @@ func userRoutes(_ app: Application) throws {
             return "User Get Groupped 2 with param: \(id)"
         }
         
-        users2.post { req -> String in
+        users2.post { req -> HTTPResponseStatus in
             guard let bodyString = req.body.string else {
                 throw Abort(HTTPResponseStatus.badRequest)
             }
             print(bodyString)
-            return "Success"
+            return HTTPStatus.ok
         }
     }
     
