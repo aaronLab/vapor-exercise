@@ -26,4 +26,9 @@ func routes(_ app: Application) throws {
         return "\(int) is a great number"
     }
     
+    app.get("api", "get", "catchall", "greetings", "**") { req -> String in
+        let name = req.parameters.getCatchall().joined(separator: " ").uppercased()
+        return "Hello, \(name)!"
+    }
+    
 }
